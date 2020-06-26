@@ -1,0 +1,340 @@
+import time
+import random
+
+print("Welcome to this Choose Your Own Adventure story!")
+time.sleep(1.5)
+name = input("What is your characters name:")
+time.sleep(1.5)
+print("Welcome " + name + "!")
+time.sleep(1.5)
+town = input("What is the name of this characters kingdom:")
+time.sleep(1.5)
+print("Great! Let's get started!")
+
+
+class Player:
+	def __init__(self, name, health):
+		self.health = health
+		self.name = name
+		time.sleep(1.5)
+
+
+def Game_Over():
+	if(player.health <= 0):
+		time.sleep(1.5)
+		print("You collapse to the floor and die")
+		time.sleep(1.5)
+		print("The End")
+		time.sleep(1.5)
+		exit()
+
+player = Player(name, 100)
+
+str_health = str(player.health)
+
+pet_rabbit = 0
+
+print("You have " + str_health + " health.")
+print("If you run out of health, you die")
+print("You can check your health during a decision by typing 'health'")
+time.sleep(5)
+print("Good Luck!")
+time.sleep(1.5)
+
+while (player.health > 0):
+	print("Welcome to the town of " + town + "!")
+	time.sleep(1.5)
+	print("The king of " + town + " has ordered you to go out and explore the land surrounding the kingdom")
+	time.sleep(3)
+	print("You head to the front gates and prepare to go on an adventure")
+	time.sleep(2)
+	print("There are 3 pathways")
+	time.sleep(1.5)
+	print("1. West")
+	time.sleep(1.5)
+	print("2. North")
+	time.sleep(1.5)
+	print("3. East")
+	time.sleep(1.5)
+	while True:
+		decision1 = input("Which way will you go?")
+		time.sleep(1.5)
+		if(decision1 == "1"):
+			print("You decide to go West")
+			trip1 = random.choice([1,2,3])
+			if (trip1 == 2):
+				time.sleep(1.5)
+				print("As your walking along the path, you trip on a rock")
+				rock_damage = random.choice([1,2,3,4,5,6,7,15])
+				str_rock_damage = str(rock_damage)
+				time.sleep(1.5)
+				print("-" + str_rock_damage + " health")
+				player.health = player.health - rock_damage
+				Game_Over()
+			time.sleep(1.5)
+			print("Eventually, you come across a cave")
+			time.sleep(1.5)
+			print("What should you do?")
+			time.sleep(1.5)
+			print("1. Don't go in")
+			time.sleep(1.5)
+			print("2. Walk inside")
+			while True:
+				time.sleep(1.5)
+				decision2 = input("What will you do?")
+				time.sleep(1.5)
+				if(decision2 == "1"):
+					print("You decided not to explore the cave")
+					time.sleep(1.5)
+					print("As you continue down the pathway, you come across something shiny")
+					time.sleep(1.5)
+				elif(decision2 == "2"):
+					print("You decide to enter the cave")
+					time.sleep(1.5)
+					print("As you look around the cave, you start hearing strange noises")
+					time.sleep(1.5)
+					print("Then you start to hear footsteps")
+					time.sleep(1.5)
+					print("All of a sudden, a man appears in front of you")
+					time.sleep(1.5)
+					print("The man does not seem happy that you are in his cave")
+					time.sleep(1.5)
+					print("The man picks up a stick and bonks you on the head")
+					time.sleep(1.5)
+					stick_damage = random.choice([0,1,2,3,4,5,6,7,85])
+					str_stick_damage = str(stick_damage)
+					if(stick_damage == 0):
+						print("Lucky for you, he missed")
+						time.sleep(1.5)
+					if(stick_damage == 85):
+						print("Critical hit!")
+						time.sleep(1.5)
+					print("-" + str_stick_damage + " health")
+					player.health = player.health - stick_damage
+					Game_Over()
+					time.sleep(1.5)
+					print("You quickly run past the man and further into the cave")
+					time.sleep(1.5)
+				elif(decision2 == "health" or decision1 == "Health"):
+					str_health = str(player.health)
+					print("You have " + str_health + " health")
+					continue
+				else:
+					print("Not an option")
+					continue
+
+
+		elif(decision1 == "2"):
+			print("You decide to go North")
+			trip1 = random.choice([1,2,3])
+			if (trip1 == 2):
+				print("As your walking along the path, you trip on a rock")
+				rock_damage = random.choice([1,2,3,4,5,6,7,15])
+				str_rock_damage = str(rock_damage)
+				print("-" + str_rock_damage + " health")
+				player.health = player.health - rock_damage
+				Game_Over()
+			time.sleep(1.5)
+			print("Eventually, you come across a hole in the ground")
+			time.sleep(1.5)
+			print("You look down the hole and it looks pretty deep")
+			time.sleep(1.5)
+			print("What should you do?")
+			time.sleep(1.5)
+			print("1. Jump in")
+			time.sleep(1.5)
+			print("2. Walk around it")
+			time.sleep(1.5)
+			print("3. Jump in carefully")
+			time.sleep(1.5)
+			while True:
+				decision3= input("What will you do?")
+				time.sleep(1.5)
+				if(decision3 == "1"):
+					print("You decide to jump down the hole")
+					time.sleep(2)
+					print("As you are falling, you start to think,")
+					time.sleep(2)
+					print("'Maybe this wasn't such a good idea'")
+					time.sleep(2)
+					print("As you hit the ground you break every bone in your body")
+					time.sleep(3)
+					print("-10000000000000000 health")
+					player.health = player.health -10000000000000000
+					Game_Over()
+					 
+				elif(decision3 == "2"):
+					print("You decide to walk around the hole")
+					time.sleep(1.5)
+				elif(decision3 == "3"):
+					print("Now you may be thinking")
+					time.sleep(1.5)
+					print("How do you jump down an extremely deep hole carefully?")
+					time.sleep(3)
+					print("Well i'll tell you how")
+					time.sleep(2)
+					print("You cant")
+					time.sleep(1.5)
+					print("As you hit the ground you break every bone in your body")
+					time.sleep(3)
+					print("-10000000000000000 health")
+					player.health = player.health -10000000000000000
+					Game_Over()
+
+				elif(decision3 == "health" or decision1 == "Health"):
+					str_health = str(player.health)
+					print("You have " + str_health + " health")
+					continue
+				else:
+					print("Not an option")
+					continue
+
+
+
+
+		elif(decision1 == "3"):
+			print("You decide to go East")
+			trip1 = random.choice([1,2,3])
+			if (trip1 == 2):
+				time.sleep(1.5)
+				print("As your walking along the path, you trip on a rock")
+				rock_damage = random.choice([1,2,3,4,5,6,7,15])
+				str_rock_damage = str(rock_damage)
+				time.sleep(1.5)
+				print("-" + str_rock_damage + " health")
+				player.health = player.health - rock_damage
+				Game_Over()
+			time.sleep(1.5)
+			print("Eventually, you come across a rabbit")
+			time.sleep(1.5)
+			print("What should you do?")
+			time.sleep(1.5)
+			print("1. Pet it")
+			time.sleep(1.5)
+			print("2. Walk past it")
+			time.sleep(1.5)
+			print("3. Kick it")
+			time.sleep(1.5)
+			while True:
+				decision4 = input("What will you do?")
+				time.sleep(1.5)
+				if(decision4 == "1"):
+					print("You lean down to pet the little rabbit")
+					time.sleep(1.5)
+					pet_rabbit_chance = random.choice([1,2])
+					if(pet_rabbit_chance == 1):
+						time.sleep(1.5)
+						print("The rabbit seems to like you")
+						time.sleep(1.5)
+						print("You ask it if it wants to come on your journey")
+						time.sleep(1.5)
+						print("The rabbit nods")
+						time.sleep(1.5)
+						print("You gained a pet rabbit!")
+						time.sleep(1.5)
+						pet_rabbit = 1
+					else:
+						print("You lean down to pet the rabbit, but it jumps up and bites your arm")
+						rabbit_damage = random.choice([3,5,7,10])
+						str_rabbit_damage = str(rabbit_damage)
+						time.sleep(1.5)
+						print("-" + str_rabbit_damage + "health")
+						player.health = player.health - rabbit_damage
+						Game_Over()
+					print("You move on and continue down the trail")
+					ime.sleep(1.5)
+					print("You suddenly stumble upon a doll on the ground")
+				elif(decision4 == "2"):
+					print("You decide to walk past it")
+					time.sleep(1.5)
+					print("You suddenly come across what looks to be a small shack")
+					time.sleep(1.5)
+					print("All of a sudden, you see something zip past your face and fall to the ground")
+					time.sleep(1.5)
+					print("As you examine what it was, another one zips past your shoulder.")
+					time.sleep(1.5)
+					print("They're poison darts!")
+					time.sleep(1.5)
+					print("What should you do?")
+					print("1. Hide behind a tree")
+					time.sleep(1.5)
+					print("2. Try to find where they're coming from")
+					time.sleep(1.5)
+					print("3. Hide in the shed")
+					time.sleep(1.5)
+					while True:
+						decison5 = input("What will you do?")
+						time.sleep(1.5)
+						if(decision5 == "1"):
+							print("You decide to hide behind a tree")
+						elif(decision5 == "2"):
+							print("You decide to investigate where the are coming from")
+						elif(decision5 == "3"):
+							print("You decide to hide in the shed")
+						elif(decision5 == "health" or decision1 == "Health"):
+							str_health = str(player.health)
+							print("You have " + str_health + " health")
+							continue
+						else:
+							print("Not an option")
+							continue
+
+				elif(decision4 == "3"):
+					print("You run the other way in order to prepare for the inhumane thing you are about to do")
+					time.sleep(3)
+					print("You turn around and start walking")
+					time.sleep(2)
+					print("Then you start running")
+					time.sleep(2)
+					print("The rabbit looks at you with fear in its eyes")
+					time.sleep(2)
+					print("You are now running at full speed towards the rabbit")
+					time.sleep(2)
+					print("You bring back your foot")
+					time.sleep(2)
+					print("And kick the rabbit past the horizon")
+					time.sleep(2)
+					print("You monster")
+					time.sleep(1.5)
+					print("What have you done?")
+					time.sleep(1.5)
+					print("That poor rabbit...")
+					time.sleep(1.5)
+					print("YOU WILL NOT GET AWAY WITH THIS")
+					time.sleep(2)
+					print("You feel an invisible force grab your head")
+					time.sleep(2)
+					print("It snaps your neck")
+					time.sleep(2)
+					print("-9999999999999999999 health")
+					player.health = player.health -9999999999999999999
+					Game_Over()
+				elif(decision4 == "health" or decision1 == "Health"):
+					str_health = str(player.health)
+					print("You have " + str_health + " health")
+					continue
+				else:
+					print("Not an option")
+					continue
+
+		elif(decision1 == "health" or decision1 == "Health"):
+			str_health = str(player.health)
+			print("You have " + str_health + " health")
+			continue
+		else:
+			print("Not an option")
+			continue
+
+
+
+
+	
+
+
+
+
+
+
+
+
+		
